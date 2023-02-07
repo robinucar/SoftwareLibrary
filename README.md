@@ -15,3 +15,7 @@ I would like to update a book information on library.
 As a senior software engineer,
 So that I can share books about tech languages,
 I would like to delete not useful book information on library. 
+
+As a software engineer,
+So that I can learn information about the book,
+I would like to see book name, description, author name, price, publish year and the format of book
