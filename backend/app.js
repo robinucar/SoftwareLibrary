@@ -19,6 +19,12 @@ const mongoUrl = process.env.MONGODB_URL;
 
 const PORT = 5000;
 
+//middleware
+
+app.use("/",(req,res,next) => {
+    res.send("App is starting")
+})
+
 
 mongoose.set("strictQuery", false)
 // connect with DB
@@ -28,6 +34,6 @@ mongoose
   })
   .then(() => console.log("Conmnected to DB"))
   .then(() => {
-    app.listen(PORT);
+    app.listen(5000);
   })
   .catch((err) => console.error(err));
