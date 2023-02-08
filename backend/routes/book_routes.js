@@ -1,11 +1,15 @@
-// //express
-// const express = require("express");
+//express
+const express = require("express");
 
-// //router
-// const router = express.Router();
+//router
+const router = express.Router();
 
-// //GET request
+//create book from model
+const Book = require("../Model/Book");
 
-// router.get("/", (req, res, next) => {
+//call get allbooks controller
+const booksController = require("../Controllers/bookController");
+//GET request (this route will provide all books from database)
+router.get("/", booksController.getAllBooks);
 
-// })
+module.exports = router;

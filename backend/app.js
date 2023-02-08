@@ -7,6 +7,8 @@ const dotenv = require("dotenv");
 // create mongoose
 const mongoose = require("mongoose");
 
+//call router
+const router = require("./routes/book_routes");
 //configure dotenv
 
 dotenv.config();
@@ -19,18 +21,14 @@ const mongoUrl = process.env.MONGODB_URL;
 
 const PORT = 5000;
 
-//middleware
+//middlewares
+app.use("/books", router); // http://localhost:5000/books
 
-app.use("/",(req,res,next) => {
-    res.send("App is starting")
-})
-
-
-mongoose.set("strictQuery", false)
+mongoose.set("strictQuery", false);
 // connect with DB
 mongoose
   .connect(mongoUrl, {
-    
+    useNewUrlParser: true,
   })
   .then(() => console.log("Conmnected to DB"))
   .then(() => {
