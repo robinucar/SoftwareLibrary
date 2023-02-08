@@ -22,4 +22,7 @@ router.get("/:id", booksController.getById);
 //PUT request   update a book info
 router.put("/:id", booksController.updateBook)
 
+//DELETE request delete a book by id
+router.delete("/:id", booksController.deleteBook);
+
 module.exports = router;
