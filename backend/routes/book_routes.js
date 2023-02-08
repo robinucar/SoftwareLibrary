@@ -16,4 +16,7 @@ router.get("/", booksController.getAllBooks);
 //POST request adding book to database
 router.post("/", booksController.addBook);
 
+//GET request  getting a book info by id
+router.get("/:id", booksController.getById);
+
 module.exports = router;

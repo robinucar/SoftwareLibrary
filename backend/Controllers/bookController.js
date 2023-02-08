@@ -53,5 +53,24 @@ const addBook = async (req, res, next) => {
   return res.status(201).json({ book });
   
 };
+
+//Get book by id
+const getById = async (req, res,next) => {
+    const id = req.params.id;
+    let book;
+    try {
+        book = await Book.findById(id);
+    } catch (err) {
+        console.error(err);
+    }
+    if (!book) {
+        return res.status(404).json({ message: "No Book found!" });
+      }
+    
+      return res.status(200).json({ book });
+
+}
+
 exports.getAllBooks = getAllBooks;
 exports.addBook = addBook;
+exports.getById = getById;
