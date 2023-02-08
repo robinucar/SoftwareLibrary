@@ -22,11 +22,12 @@ const mongoUrl = process.env.MONGODB_URL;
 const PORT = 5000;
 
 //middlewares
+//convert all data to json
+app.use(express.json());
 
 app.use("/books", router); // http://localhost:5000/books
 
-//convert all data to json
-app.use(express.json());
+
 
 // connect with DB
 mongoose.set("strictQuery", false);
