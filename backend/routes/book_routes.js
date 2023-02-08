@@ -9,7 +9,11 @@ const Book = require("../Model/Book");
 
 //call get allbooks controller
 const booksController = require("../Controllers/bookController");
+
 //GET request (this route will provide all books from database)
 router.get("/", booksController.getAllBooks);
+
+//POST request adding book to database
+router.post("/", booksController.addBook);
 
 module.exports = router;
