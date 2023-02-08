@@ -71,6 +71,43 @@ const getById = async (req, res,next) => {
 
 }
 
+// Update book info
+
+const updateBook = async(req,res,next) => {
+    const {
+        name,
+        author,
+        techStack,
+        description,
+        publishYear,
+        price,
+        availablePDF,
+      } = req.body;
+    const id = req.params.id;
+    let book;
+    try {
+        book = await Book.findByIdAndUpdate(id, {
+            name,
+            author, 
+            techStack, 
+            description, 
+            publishYear, 
+            price,
+            availablePDF
+        });
+        book = await book.save();
+    } catch (err) {
+        console.error(err);
+    }
+    if (!book) {
+        return res.status(404).json({ message: "Unable to update by this ID" });
+      }
+    
+      return res.status(200).json({ book });
+    
+}
+
 exports.getAllBooks = getAllBooks;
 exports.addBook = addBook;
 exports.getById = getById;
+exports.updateBook = updateBook;

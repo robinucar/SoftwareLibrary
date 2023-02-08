@@ -19,4 +19,7 @@ router.post("/", booksController.addBook);
 //GET request  getting a book info by id
 router.get("/:id", booksController.getById);
 
+//PUT request   update a book info
+router.put("/:id", booksController.updateBook)
+
 module.exports = router;
