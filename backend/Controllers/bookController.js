@@ -50,7 +50,7 @@ const addBook = async (req, res, next) => {
     console.log(book)
     return res.status(500).json({ message: "Unable to add!" });
   }
-  return res.status(201).json({ book });
+  return res.status(201).json({ book, message: "Book has been added!" });
   
 };
 
@@ -103,7 +103,7 @@ const updateBook = async(req,res,next) => {
         return res.status(404).json({ message: "Unable to update by this ID" });
       }
     
-      return res.status(200).json({ book });
+      return res.status(200).json({ book, message: "Book has been updated!" });
     
 }
 
@@ -120,7 +120,7 @@ const deleteBook = async (req,res,next) => {
         return res.status(404).json({ message: "Unable to delete by this ID" });
       }
     
-      return res.status(200).json({ book });
+      return res.status(200).json({ book, message: "Book has been deleted!" });
 }
 
 exports.getAllBooks = getAllBooks;
