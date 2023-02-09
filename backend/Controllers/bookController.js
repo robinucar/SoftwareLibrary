@@ -28,6 +28,7 @@ const addBook = async (req, res, next) => {
     publishYear,
     price,
     availablePDF,
+    image,
   } = req.body;
   let book;
   try {
@@ -39,6 +40,7 @@ const addBook = async (req, res, next) => {
       publishYear,
       price,
       availablePDF,
+      image,
     });
     await book.save();
   } catch (err) {
@@ -82,6 +84,7 @@ const updateBook = async(req,res,next) => {
         publishYear,
         price,
         availablePDF,
+        image,
       } = req.body;
     const id = req.params.id;
     let book;
@@ -93,7 +96,8 @@ const updateBook = async(req,res,next) => {
             description, 
             publishYear, 
             price,
-            availablePDF
+            availablePDF,
+            image,
         });
         book = await book.save();
     } catch (err) {
