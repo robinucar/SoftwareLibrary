@@ -7,6 +7,9 @@ const dotenv = require("dotenv");
 // create mongoose
 const mongoose = require("mongoose");
 
+//cors
+const cors = require("cors");
+
 //call router
 const router = require("./routes/book_routes");
 //configure dotenv
@@ -21,9 +24,13 @@ const mongoUrl = process.env.MONGODB_URL;
 
 const PORT = 5000;
 
-//middlewares
+//Middlewares
 //convert all data to json
 app.use(express.json());
+
+//cors
+app.use(cors());
+
 
 app.use("/books", router); // http://localhost:5000/books
 
